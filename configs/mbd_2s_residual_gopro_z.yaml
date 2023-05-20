@@ -1,0 +1,72 @@
+dataset_args:
+  num_gts: 8
+  train:
+    # data_dir: /ssd/zzh/dataset/GoPro/GOPRO_Large_all/train/
+    data_dir: /ssd/zzh/dataset/GoPro/GOPRO_Large_all/mini_test/ # for debug
+    ce_code: [1,1,1,1,1,1,1,1]
+    batch_size: 8 # ${batch_size} | 8
+    patch_size: 256 # ${patch_size}
+    tform_op: 'all' # ~ | 'flip' | 'rotate' | 'reverse' | 'all' # MARK
+    status: 'train'
+    shuffle: true
+    num_workers: 2
+    pin_memory: true
+    prefetch_factor: 1
+    all2CPU: true #
+  test:
+    data_dir: /ssd/zzh/dataset/GoPro/GOPRO_Large_all/mini_test/
+    ce_code: [1,1,1,1,1,1,1,1]
+    batch_size: 4
+    patch_size: ~
+    tform_op: ~
+    status: 'test'
+    shuffle: False
+    num_workers: 2
+    pin_memory: True
+    prefetch_factor: 2
+    all2CPU: True  
+decomposer_s1_args:
+  block_expansion: 128
+  conv_down: true
+  in_channels: 3
+  max_features: 512
+  norm_type: batch
+  num_bottleneck_blocks: 12
+  num_down_blocks: 2
+  out_channels: 21
+  trans_up: true
+decomposer_s2_args:
+  block_expansion: 128
+  conv_down: true
+  in_channels: 3
+  max_features: 512
+  norm_type: batch
+  num_bottleneck_blocks: 12
+  num_down_blocks: 2
+  out_channels: 21
+  trans_up: true
+epoch: 400
+flow_embedder_args:
+  i: -1
+  multires: 5
+flow_estimator_args:
+  checkpoint: ./checkpoints/raft-sintel.pth
+  iters: 30
+flow_to_s2: false
+hybrid: false
+num_iterations: 1
+num_workers: 4
+optimizer:
+  lr: 0.0001
+  weight_decay: 0.0001
+residual: true
+resume_dir: null
+s1_to_s2: true
+scheduler:
+  eta_min: 1.0e-06
+train_batch_size: 2
+trend_embedder_args:
+  i: -1
+  multires: 5
+val_range: 1.0 # zzh: value range 
+valid_batch_size: 2

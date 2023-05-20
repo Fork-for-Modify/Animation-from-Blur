@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "torch.distributed.launch",
+            "args": [
+                "--nproc_per_node=1",
+                "train_mbd_z.py",
+                "--config",
+                "./configs/mbd_2s_residual_gopro_z.yaml",
+                "--log_dir",
+                "./experiments/gopro_mbd",
+                "--verbose"
+            ],
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "train_mbd.py",
+            "console": "integratedTerminal",
+            "args": [
+                "-m",
+                "torch.distributed.launch",
+                "--nproc_per_node=1",
+                "train_mbd.py",
+                "--config",
+                "./configs/mbd_2s_residual_gopro_z.yaml",
+                "--log_dir",
+                "./experiments/gopro_mbd",
+                "--verbose"
+            ],
+            "justMyCode": false
+        }
+    ]
+}

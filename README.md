@@ -33,6 +33,8 @@ Please download B-AIST++ dataset from this [link](https://drive.google.com/file/
 
 Please download checkpoints from this [link](https://drive.google.com/drive/folders/1JlBpYrveC9eN8nw8XIqbj7iq9tesqGu4?usp=sharing) and put them under *./checkpoints/* directory.
 
+Or generate the dataset on your own with the [dataset_prepare script](./dataset_prepare)
+
 #### Installation:
 
 ```shell

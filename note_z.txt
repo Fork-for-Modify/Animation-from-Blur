@@ -1,0 +1,2 @@
+- how to prepare the dataset: https://github.com/zzh-tech/Animation-from-Blur/issues/5
+    - [dataset_prepare](./dataset_prepare)
